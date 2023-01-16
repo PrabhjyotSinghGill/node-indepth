@@ -4,9 +4,11 @@
 const promise = new Promise((resolve, reject) => {
   //All kind of asynchronous work done here
   setTimeout(() => {
-    resolve({ name: "gill" });
+    // resolve({ name: "gill" });
+    reject(new Error("message"));
   }, 2000);
-  //reject(new Error('message'));
 });
 
-promise.then((result) => console.log("Result", result));
+promise
+  .then((result) => console.log("Result", result))
+  .catch((error) => console.log("Error", error.message));
